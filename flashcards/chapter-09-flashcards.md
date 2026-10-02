@@ -1,0 +1,16 @@
+## Chapter 9: Incident Response: Preparation and Post-Incident Activity — Flashcards
+
+| # | Front (Question) | Back (Answer) |
+|---|-----------------|---------------|
+| 1 | Chain of custody form — what elements must be recorded for each evidence handoff? | Who, what, when, where, why, and signature. Exam tip: any missing transfer entry breaks the chain of custody and undermines legal admissibility. |
+| 2 | 5 Whys vs Fishbone (Ishikawa) diagram — when to use each for RCA? | 5 Whys: quick, single root cause, linear causal chain. Fishbone: complex incidents with multiple contributing factors (People, Process, Technology, etc.). Exam tip: a scenario with one clear failure chain → 5 Whys. |
+| 3 | Command to generate a SHA-256 hash of an evidence file on Linux? | sha256sum evidencefile.img. Exam tip: hash BEFORE and AFTER imaging to prove integrity — hashes must match exactly. |
+| 4 | Tabletop exercise vs Full-scale exercise — key difference? | Tabletop = discussion-based walkthrough, no systems touched, low cost. Full-scale = live simulation using real production systems and response actions. Exam tip: tabletop tests the PLAN; full-scale tests the TEAM'S EXECUTION. |
+| 5 | IR Plan vs Playbook vs Runbook — what's the difference? | IR Plan = strategic, high-level roles/authority/policy. Playbook = tactical, incident-type-specific decision workflow (e.g., ransomware playbook). Runbook = step-by-step technical procedure for a single task. Exam tip: scenarios often ask which document to update after an incident. |
+| 6 | NIST IR lifecycle phases (order)? | 1) Preparation 2) Detection & Analysis 3) Containment, Eradication & Recovery 4) Post-Incident Activity (Lessons Learned). Exam tip: this chapter focuses on Preparation and Post-Incident Activity. |
+| 7 | Lessons-learned meeting — when should it be held after incident closure? | Within days to about two weeks, while details are fresh, and run as a blame-free/no-fault discussion. Exam tip: the purpose is process improvement, NOT punishment. |
+| 8 | Order of volatility — what is collected FIRST during evidence collection? | CPU registers/cache → RAM → swap/paging file → disk → remote logs → archival media. Exam tip: most volatile data is collected first to prevent loss. |
+| 9 | Chain of custody — purpose in a legal/exam context? | Proves evidence integrity and an unbroken possession trail from collection to court. Exam tip: any gap in custody makes evidence inadmissible, even if the content itself is valid. |
+| 10 | RCA output should feed into which two IR artifacts? | 1) Updated playbook/runbook (technical fix) 2) Lessons-learned report (process/policy fix). Exam tip: an RCA answer without a documented follow-up action is incomplete. |
+| 11 | BC/DR alignment with IR — which document defines RTO/RPO? | The Business Continuity Plan (BCP) / Disaster Recovery Plan (DRP) defines Recovery Time Objective (RTO) and Recovery Point Objective (RPO); the IR plan references these during the recovery phase. Exam tip: the IR plan itself does not define RTO/RPO. |
+| 12 | Write blocker — what's its purpose in evidence handling? | Prevents any write operations to original evidence media during imaging/analysis, preserving data integrity for chain of custody. Exam tip: always image using a write blocker before analysis — never analyze the original media directly. |

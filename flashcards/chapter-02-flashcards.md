@@ -1,0 +1,16 @@
+## Chapter 2: Security Operations: Detecting Malicious Activity with SIEM, Logs, and Packet Data — Flashcards
+
+| # | Front (Question) | Back (Answer) |
+|---|-----------------|---------------|
+| 1 | Password spraying vs. brute force — key detection difference? | Brute force = many failed attempts on ONE account. Password spraying = few attempts (1-3) across MANY accounts from the same source. Exam tip: spraying is designed to evade account lockout policies. |
+| 2 | BPF capture filter syntax for host + port (Wireshark/tcpdump) | host 10.0.0.5 and tcp port 443 — capture filters use keyword syntax (host/port/net), set BEFORE capture starts, and cannot be changed on already-captured packets. |
+| 3 | Wireshark display filter to identify SYN scan traffic | tcp.flags.syn==1 && tcp.flags.ack==0 — isolates SYN-only packets, indicating a half-open (stealth) port scan. |
+| 4 | Indicator of DNS tunneling in packet capture | Unusually large DNS query/response frames or high-entropy/long subdomain names, often using TXT records (dns.qry.type==16). Exam tip: high volume of queries to a single domain is a red flag. |
+| 5 | SPF vs DKIM vs DMARC — what each verifies | SPF: checks if the sending IP is authorized for the domain. DKIM: verifies message integrity via cryptographic signature. DMARC: enforces a policy (reject/quarantine) using SPF and/or DKIM results. Exam tests differentiating all three. |
+| 6 | SQL injection indicators in web logs | Look for UNION SELECT, ' OR '1'='1, --, ; DROP TABLE, and URL-encoded chars like %27 (') in query strings. Exam tip: encoded characters often disguise injection attempts. |
+| 7 | XSS indicators in web/access logs | Look for <script>, javascript:, onerror=, or their URL-encoded forms (%3Cscript%3E) in query strings, form fields, or Referer headers. Reflected XSS is often visible directly in the request URL. |
+| 8 | Windows persistence indicator locations to check | HKCU/HKLM ...\CurrentVersion\Run(Once) registry keys, scheduled tasks, and newly created services. Exam tip: correlate with abnormal parent-child process chains (e.g., WINWORD.EXE spawning powershell.exe). |
+| 9 | Key characteristics that flag beaconing in SIEM correlation | Regular time intervals (low jitter), consistent packet/payload size, and destination is a low-reputation or newly registered domain. Exam tip: correlation rules key on periodicity, not just volume. |
+| 10 | Static vs. dynamic malware analysis | Static: examines the file without execution (hashes, strings, VirusTotal). Dynamic: executes the file in an isolated sandbox (e.g., Cuckoo Sandbox) to observe runtime behavior. Exam tip: only dynamic analysis reveals runtime/behavioral IOCs. |
+| 11 | Example password-spraying SIEM rule threshold | Alert when 1-3 failed logins occur across 50+ distinct accounts from a single source IP within a 10-15 minute window. Exam tip: this avoids triggering standard per-account lockout thresholds. |
+| 12 | Capture filter vs. display filter — exam trap | Capture filters (BPF: host/port/net) are applied BEFORE capture and can't be changed after; display filters (Wireshark syntax: ip.addr==, tcp.port==) are applied AFTER capture to already-saved packets. Exam tip: capture filters permanently drop unmatched packets. |

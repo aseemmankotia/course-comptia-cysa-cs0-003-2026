@@ -1,0 +1,16 @@
+## Chapter 10: Reporting and Communication: Vulnerability Management Reporting — Flashcards
+
+| # | Front (Question) | Back (Answer) |
+|---|-----------------|---------------|
+| 1 | Formula for Mean Time to Remediate (MTTR)? | Average of (remediation date − identification date) across all remediated findings. Exam tip: MTTR measures speed of fixing, not detection. |
+| 2 | What does 'scan coverage' measure? | Percentage of known assets in inventory actually scanned. Low coverage = visibility gap even if remediation looks good. Exam tip: coverage ≠ remediation rate. |
+| 3 | What does a high 'recurring findings' rate signal? | The same vulnerability reappears after being marked fixed — indicates a systemic root cause (bad baseline image, broken patch process) rather than one-off remediation failure. |
+| 4 | Four common categories of remediation inhibitors? | 1) Business process/operations interruption, 2) Legacy systems (no patch available), 3) Budget constraints, 4) Staffing shortages. Exam tip: match the scenario detail to exactly one category. |
+| 5 | Executive report vs. technical remediation report — key difference? | Executive report: risk trend, business/financial impact, high-level summary. Technical report: exact patch versions, CLI steps, configuration changes. Exam tip: match audience to detail level. |
+| 6 | Compliance/audit report vs. risk-prioritization report — key difference? | Compliance report maps findings to specific regulatory controls (e.g., PCI DSS, HIPAA) as evidence. Risk report ranks findings by business impact/likelihood regardless of specific control mapping. |
+| 7 | Who should receive raw CVSS scores and CVE lists? | Security analysts and IT operations — technical staff who act directly on findings. Not appropriate for executives or the board. |
+| 8 | IT Ops audience focus vs. Executive audience focus in vulnerability reporting? | IT Ops: exact remediation steps, affected systems, patch instructions. Executives: financial exposure, risk trend over time, resource/budget decisions. |
+| 9 | Core components of a vulnerability action/remediation plan? | Finding description, affected asset(s), risk rating, assigned owner, remediation steps, target completion date, verification method. Exam tip: missing an owner or deadline is a common gap tested. |
+| 10 | How should risk prioritization be framed in a stakeholder report? | Combine technical severity (CVSS) + asset criticality + business context (exposure, data sensitivity) — not CVSS score alone. Exam tip: 'highest CVSS' is often the wrong answer if asset criticality/exposure isn't considered. |
+| 11 | Escalation path when remediation stalls past SLA? | Notify asset/system owner → escalate to IT management → escalate to risk/compliance committee or executive sponsor if still unresolved. Exam tip: reports should identify the inhibitor, not just the delay. |
+| 12 | Common industry-referenced remediation timeframe benchmarks (not a fixed exam number, but a widely used practice)? | Critical ~15 days, High ~30 days, Medium ~90 days, Low ~180 days. Exam tip: these vary by organizational policy — the exam tests that you can identify overdue items against a stated SLA, not memorize universal fixed numbers. |
